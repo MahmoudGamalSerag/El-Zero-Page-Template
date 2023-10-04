@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Cairo", "sans-serif";
+}
+.dotted-loader {
+  width: 100px;
+  height: 100px;
+  border-width: 4px;
+  border-style: solid solid dotted dotted;
+  border-color: #0075ff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+  animation: rotate-right 2s infinite linear;
+  display: none;
+}
+.dotted-loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 55px;
+  height: 55px;
+  border-width: 4px;
+  border-style: solid dotted;
+  border-color: #009688;
+  border-radius: 50%;
+  margin: auto;
+  animation: rotate-left 1s infinite linear;
+}
+
+.scroller {
+  height: 5px;
+  top: 0;
+  left: 0;
+  background-color: #10cab7;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.up {
+  position: fixed;
+  bottom: 10px;
+  right: -45px;
+  background-color: #ff5722;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 4px;
+  font-family: Arial, Tahoma;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.up.show {
+  right: 10px;
+}
+
+/* Animation */
+@keyframes rotate-right {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes rotate-left {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+/* <div class="dotted-loader"></div>
+    <div class="scroller"></div>
+    <span class="up">Up</span>
+    <script src="tools.js"></script> */
